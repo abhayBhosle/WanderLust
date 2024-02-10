@@ -10,8 +10,8 @@ const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 
 router.route("/")
-    .get(wrapAsync(listingController.index)) //index route
-    .post(isLoggedIn, upload.single("listing[image]"), validateListing, wrapAsync(listingController.createListing)); //create Route
+    .post(isLoggedIn, upload.single("listing[image]"), validateListing, wrapAsync(listingController.createListing)) //create Route
+    .get(wrapAsync(listingController.index)); //index route
 
 
 //New Route part 1
